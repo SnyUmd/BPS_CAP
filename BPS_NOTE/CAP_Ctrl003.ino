@@ -28,8 +28,6 @@
 
 #define PORT_DEBUG 12
 
-#include "Timer.h"
-
 //*********************************************************************************
 //*********************************************************************************
 //*********************************************************************************
@@ -162,7 +160,6 @@ void InitPort()
     digitalWrite(PORT_DEBUG, HIGH);
     //----------------------------
 
-
     pinMode(PORT_SENSOR_PE, INPUT_PULLUP);
     pinMode(PORT_SENSOR_W, INPUT_PULLUP);
 
@@ -197,21 +194,27 @@ void FlashLED(int loopNum, int delayTime, bool blEnd)
 //*********************************************************************************
 void FlgSetAir2()
 {
-    FlgPE = true;
-    digitalWrite(PORT_DEBUG, LOW);
-    digitalWrite(PORT_LED, LED_ON);
-    Serial.println("Air2 Flg Set");
+    if(digitalRead(PORT_SENSOR_PASS_2) == LOW)
+    {
+        FlgPE = true;
+        digitalWrite(PORT_DEBUG, LOW);
+        digitalWrite(PORT_LED, LED_ON);
+        Serial.println("Air2 Flg Set");
+    }
 }
 
 
 //*********************************************************************************
 void FlgSetAir3()
 {
-    FlgW = true;
-    digitalWrite(PORT_LED, !digitalRead(PORT_LED));
-    digitalWrite(PORT_DEBUG, LOW);
-    digitalWrite(PORT_LED, LED_ON);
-    Serial.println("Air3 Flg Set");
+    if(digitalRead(PORT_SENSOR_PASS_3) == LOW)
+    {
+        FlgW = true;
+        digitalWrite(PORT_LED, !digitalRead(PORT_LED));
+        digitalWrite(PORT_DEBUG, LOW);
+        digitalWrite(PORT_LED, LED_ON);
+        Serial.println("Air3 Flg Set");
+    }
 }
 
 
