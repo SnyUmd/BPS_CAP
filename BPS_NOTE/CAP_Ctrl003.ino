@@ -23,10 +23,13 @@
 #define PORT_AIR_PE 6
 #define PORT_AIR_W 7
 
-#define CNT_END_NUM 5000
+#define CNT_END_NUM 1000
 #define CNT_FLG_CANCEL 62000
+#define CNT_WAIT 5000
 
-#define PORT_DEBUG 12
+#define CNT_DEBUG 100000
+#define PORT_DEBUG_PE 11
+#define PORT_DEBUG_W 12
 
 //*********************************************************************************
 //*********************************************************************************
@@ -34,7 +37,7 @@
 void setup() {
     InitPort();//ポートのイニシャライズ
 
-    FlashLED(3, 50, LED_OFF);
+    FlashLED(6, 50, LED_OFF);
 
     attachInterrupt(INT_NUM_AREA2, FlgSetAir2, FALLING);
     attachInterrupt(INT_NUM_AREA3, FlgSetAir3, FALLING);
@@ -44,11 +47,14 @@ void setup() {
 }
 
 //*********************************************************************************
-long CntAirPE = 0;
-long CntAirW = 0;
+// long AirPE = 0;
+// long AirW = 0;
 
-long CntFlgPE = 0;
-long CntFlgW = 0;
+// long FlgPE = 0;
+// long FlgW = 0;
+
+// long WaitPassPE = 0;
+// long WaitPassW = 0;
 
 //bool BlCntRunPE = false;
 //bool BlCntRunW = false;
@@ -56,21 +62,26 @@ long CntFlgW = 0;
 bool FlgPE = false;
 bool FlgW = false;
 
+struct _structCNT
+{
+    long AirPE = 0;
+    long AirW = 0;
+
+    long FlgPE = 0;
+    long FlgW = 0;
+
+    long WaitPassPE = 0;
+    long WaitPassW = 0;
+
+    long testAAA = 0;
+};
+struct _structCNT St_Cnt;
+
+//*********************************************************************************
 void loop() 
 {
     CtrlPE(FlgPE);
     CtrlW(FlgW);
-
-    if(FlgPE || FlgW)
-    {
-        digitalWrite(PORT_DEBUG, LOW);
-        digitalWrite(PORT_LED, LED_ON);
-    }
-    else
-    {
-        digitalWrite(PORT_DEBUG, HIGH);
-        digitalWrite(PORT_LED, LED_OFF);
-    }
 }
 //*********************************************************************************
 //*********************************************************************************
@@ -78,35 +89,44 @@ void CtrlPE(bool& flg)
 {
     if(flg)
     {
+        //通過信号よりもセンサ信号が早い時の為のWait
+        //St_Cnt.WaitPassPE++;
         //CAP通過が終わったらPE命令発信
-        if(digitalRead(PORT_SENSOR_PASS_2) == HIGH)
+        if(CheckCnt(St_Cnt.WaitPassPE, CNT_WAIT) && digitalRead(PORT_SENSOR_PASS_2) == HIGH)
         {
             digitalWrite(PORT_AIR_PE, AIR_ON);
             flg *= false;
-            Serial.println("-AirPE Start-");
-            CntFlgPE = 0;
+            
+            //St_Cnt.FlgPE = 0;
+            //St_Cnt.WaitPassPE = 0;
+            ResetCnt(true, false);
+            
         }
         else
         {
-            CntFlgPE++;
-            if(CntFlgPE > CNT_FLG_CANCEL)
+            if(CheckCnt(St_Cnt.FlgPE, CNT_FLG_CANCEL))
             {
                 flg *= false;
-                CntFlgPE = 0;
+                //St_Cnt.FlgPE = 0;
+                //St_Cnt.WaitPassPE = 0;
+                ResetCnt(true, false);
             }
         }
+
+        if(St_Cnt.WaitPassPE >= CNT_WAIT)
+            digitalWrite(PORT_DEBUG_PE, LOW);
     }
+    //エア命令信号を出している時の命令出す時間の為のカウント
     else
     {
         if(digitalRead(PORT_AIR_PE) == AIR_ON)
         {
-            CntAirPE++;
-            if(CntAirPE >= CNT_END_NUM)
+            if(CheckCnt(St_Cnt.AirPE, CNT_END_NUM))
             {
                 //digitalWrite(PORT_LED, LED_OFF);
                 digitalWrite(PORT_AIR_PE, AIR_OFF);
-                CntAirPE = 0;
-                Serial.println("-AirPE Stop-");
+                //St_Cnt.AirPE = 0;
+                ResetCnt(true, false);
             }
         }
     }
@@ -117,37 +137,73 @@ void CtrlW(bool& flg)
 {
     if(flg)
     {
+        //通過信号よりもセンサ信号が早い時の為のWait
+        //St_Cnt.WaitPassW++;
         //CAP通過が終わったらPE命令発信
-        if(digitalRead(PORT_SENSOR_PASS_3) == HIGH)
+        if(CheckCnt(St_Cnt.WaitPassW, CNT_WAIT) && digitalRead(PORT_SENSOR_PASS_3) == HIGH)
         {
             digitalWrite(PORT_AIR_W, AIR_ON);
             flg *= false;
-            Serial.println("-AirW Start-");
-            CntFlgW = 0;
+            
+            //St_Cnt.FlgW = 0;
+            //St_Cnt.WaitPassW = 0;
+            ResetCnt(false, true);
         }
         else
         {
-            CntFlgW++;
-            if(CntFlgW > CNT_FLG_CANCEL)
+            if(CheckCnt(St_Cnt.FlgW, CNT_FLG_CANCEL))
             {
                 flg *= false;
-                CntFlgW = 0;
+                //St_Cnt.FlgW = 0;
+                //St_Cnt.WaitPassW = 0;
+                ResetCnt(false, true);
             }
         }
+
+        if(St_Cnt.WaitPassW >= CNT_WAIT)
+            digitalWrite(PORT_DEBUG_W, LOW);
     }
+    //エア命令信号を出している時の命令出す時間の為のカウント
     else
     {
         if(digitalRead(PORT_AIR_W) == AIR_ON)
         {
-            CntAirW++;
-            if(CntAirW >= CNT_END_NUM)
+            if(CheckCnt(St_Cnt.AirW, CNT_END_NUM))
             {
                 //digitalWrite(PORT_LED, LED_OFF);
                 digitalWrite(PORT_AIR_W, AIR_OFF);
-                CntAirW = 0;
-                Serial.println("-AirW Stop-");
+                //St_Cnt.AirW = 0;
+                ResetCnt(false, true);
             }
         }
+    }
+}
+
+//*********************************************************************************
+bool CheckCnt(long& cnt, long endNum)
+{
+    if(cnt >= endNum)
+        return true;
+    else
+    {
+        cnt++;
+        return false;
+    }
+}
+//*********************************************************************************
+void ResetCnt(bool cntPE, bool cntW)
+{
+    if(cntPE)
+    {
+        St_Cnt.AirPE = 0;
+        St_Cnt.FlgPE = 0;
+        St_Cnt.WaitPassPE = 0;
+    }
+    if(cntW)
+    {
+        St_Cnt.AirW = 0;
+        St_Cnt.FlgW = 0;
+        St_Cnt.WaitPassW = 0;
     }
 }
 //*********************************************************************************
@@ -156,8 +212,10 @@ void CtrlW(bool& flg)
 void InitPort()
 {
     //----------------------------
-    pinMode(PORT_DEBUG, OUTPUT);
-    digitalWrite(PORT_DEBUG, HIGH);
+    pinMode(PORT_DEBUG_PE, OUTPUT);
+    pinMode(PORT_DEBUG_W, OUTPUT);
+    digitalWrite(PORT_DEBUG_PE, LOW);
+    digitalWrite(PORT_DEBUG_W, LOW);
     //----------------------------
 
     pinMode(PORT_SENSOR_PE, INPUT_PULLUP);
@@ -183,7 +241,7 @@ void FlashLED(int loopNum, int delayTime, bool blEnd)
     for (int i = 0; i < loopNum; i++)
     {
         digitalWrite(PORT_LED, LED_ON);
-        delay(delayTime/10);
+        delay(delayTime/20);
         digitalWrite(PORT_LED, LED_OFF);
         delay(delayTime*10);
     }
@@ -194,27 +252,26 @@ void FlashLED(int loopNum, int delayTime, bool blEnd)
 //*********************************************************************************
 void FlgSetAir2()
 {
-    if(digitalRead(PORT_SENSOR_PASS_2) == LOW)
-    {
-        FlgPE = true;
-        digitalWrite(PORT_DEBUG, LOW);
-        digitalWrite(PORT_LED, LED_ON);
-        Serial.println("Air2 Flg Set");
-    }
+    // if(digitalRead(PORT_SENSOR_PASS_2) == LOW)
+    // {
+    FlgPE = true;
+    digitalWrite(PORT_DEBUG_PE, HIGH);
+    ResetCnt(true, false);
+    Serial.println("Air2 Flg Set");
+    // }
 }
 
 
 //*********************************************************************************
 void FlgSetAir3()
 {
-    if(digitalRead(PORT_SENSOR_PASS_3) == LOW)
-    {
-        FlgW = true;
-        digitalWrite(PORT_LED, !digitalRead(PORT_LED));
-        digitalWrite(PORT_DEBUG, LOW);
-        digitalWrite(PORT_LED, LED_ON);
-        Serial.println("Air3 Flg Set");
-    }
+    // if(digitalRead(PORT_SENSOR_PASS_3) == LOW)
+    // {
+    FlgW = true;
+    digitalWrite(PORT_DEBUG_W, HIGH);
+    ResetCnt(false, true);
+    Serial.println("Air3 Flg Set");
+    // }
 }
 
 
