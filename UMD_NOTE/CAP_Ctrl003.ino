@@ -34,42 +34,45 @@ void setup() {
 //extern bool FlgW;
 
 
+
 //*********************************************************************************
 void loop() 
 {
-    CtrlCAP(AryStsPE, FlgPE, AREA_NUM_PE);
-    CtrlCAP(AryStsW, FlgW, AREA_NUM_W);
+    CtrlPE(FlgPE);
+    CtrlW(FlgW);
 }
 //*********************************************************************************
 //*********************************************************************************
-void CtrlCAP(long *aryCnt, bool& flg, int areaNum)
+void CtrlPE(bool& flg)
 {
     if(flg)
     {
+        //通過信号よりもセンサ信号が早い時の為のWait
+        //St_Cnt.WaitPassPE++;
         //CAP通過が終わったらPE命令発信
-        if(CheckCnt(aryCnt[cntWaitPass] , CNT_WAIT) && digitalRead(PORT_SENSOR_PASS_2) == HIGH)
+        if(CheckCnt(St_Cnt.WaitPassPE, CNT_WAIT) && digitalRead(PORT_SENSOR_PASS_2) == HIGH)
         {
             digitalWrite(PORT_LED_PE, LED_OFF);
 
             digitalWrite(PORT_AIR_PE, AIR_ON);
             digitalWrite(PORT_LED_AIR, LED_ON);
-            aryCnt[timeSpeed] = TimeElapsed(aryCnt[timeStart]);
+            St_Time.T_SpeedPE = TimeElapsed(St_Time.T_StartPE);
             Serial.print("PE,");
-            Serial.println(aryCnt[timeSpeed]);
+            Serial.println(St_Time.T_SpeedPE);
             flg *= false;
             
-            ResetCnt(areaNum);
+            ResetCnt(true, false);
         }
         else
         {
-            if(CheckCnt(aryCnt[cntFlg], CNT_FLG_CANCEL))
+            if(CheckCnt(St_Cnt.FlgPE, CNT_FLG_CANCEL))
             {
                 flg *= false;
-                ResetCnt(areaNum);
+                ResetCnt(true, false);
             }
         }
 
-        if(aryCnt[cntWaitPass] >= CNT_WAIT)
+        if(St_Cnt.WaitPassPE >= CNT_WAIT)
             digitalWrite(PORT_DEBUG_PE, LOW);
     }
     //エア命令信号を出している時の命令出す時間の為のカウント
@@ -77,12 +80,62 @@ void CtrlCAP(long *aryCnt, bool& flg, int areaNum)
     {
         if(digitalRead(PORT_AIR_PE) == AIR_ON)
         {
-            if(CheckCnt(aryCnt[cntAir], CNT_END_NUM))
+            if(CheckCnt(St_Cnt.AirPE, CNT_END_NUM))
             {
                 //digitalWrite(PORT_LED, LED_OFF);
                 digitalWrite(PORT_AIR_PE, AIR_OFF);
                 digitalWrite(PORT_LED_AIR, LED_OFF);
-                ResetCnt(areaNum);
+                //St_Cnt.AirPE = 0;
+                ResetCnt(true, false);
+            }
+        }
+    }
+}
+
+//*********************************************************************************
+void CtrlW(bool& flg)
+{
+    if(flg)
+    {
+        //通過信号よりもセンサ信号が早い時の為のWait
+        //St_Cnt.WaitPassW++;
+        //CAP通過が終わったらPE命令発信
+        if(CheckCnt(St_Cnt.WaitPassW, CNT_WAIT) && digitalRead(PORT_SENSOR_PASS_3) == HIGH)
+        {
+            digitalWrite(PORT_LED_W, LED_OFF);
+
+            digitalWrite(PORT_AIR_W, AIR_ON);
+            digitalWrite(PORT_LED_AIR, LED_ON);
+            St_Time.T_SpeedW = TimeElapsed(St_Time.T_StartW);
+            Serial.print("W,");
+            Serial.println(St_Time.T_SpeedW);
+            flg *= false;
+            
+            ResetCnt(false, true);
+        }
+        else
+        {
+            if(CheckCnt(St_Cnt.FlgW, CNT_FLG_CANCEL))
+            {
+                flg *= false;
+                ResetCnt(false, true);
+            }
+        }
+
+        if(St_Cnt.WaitPassW >= CNT_WAIT)
+            digitalWrite(PORT_DEBUG_W, LOW);
+    }
+    //エア命令信号を出している時の命令出す時間の為のカウント
+    else
+    {
+        if(digitalRead(PORT_AIR_W) == AIR_ON)
+        {
+            if(CheckCnt(St_Cnt.AirW, CNT_END_NUM))
+            {
+                digitalWrite(PORT_AIR_W, AIR_OFF);
+                digitalWrite(PORT_LED_AIR, LED_OFF);
+                //St_Cnt.AirW = 0;
+                ResetCnt(false, true);
             }
         }
     }
@@ -93,12 +146,13 @@ void FlgSetAir2()
 {
     FlgPE = true;
     //センサ反応時間をセット
-    AryStsPE[timeStart] = millis();
+    St_Time.T_StartPE = millis();
     //PEデバッグポートをセット
     digitalWrite(PORT_DEBUG_PE, HIGH);
     digitalWrite(PORT_LED_PE, LED_ON);
     //PEのカウンタをリセット
-    ResetCnt(AREA_NUM_PE);
+    ResetCnt(true, false);
+    Serial.println("Air2 Flg Set");
 }
 
 
@@ -107,12 +161,13 @@ void FlgSetAir3()
 {
     FlgW = true;
     //センサ反応時間をセット
-    AryStsW[timeStart] = millis();
+    St_Time.T_StartW = millis();
     //Wデバッグポートをセット
     digitalWrite(PORT_DEBUG_W, HIGH);
     digitalWrite(PORT_LED_W, LED_ON);
     //Wのカウンタをリセット
-    ResetCnt(AREA_NUM_W);
+    ResetCnt(false, true);
+    Serial.println("Air3 Flg Set");
 }
 
 
@@ -129,21 +184,20 @@ bool CheckCnt(long& cnt, long endNum)
 }
 
 //*********************************************************************************
-void ResetCnt(int areaNum)
+void ResetCnt(bool cntPE, bool cntW)
 {
-    if(areaNum == AREA_NUM_PE)
+    if(cntPE)
     {
-        AryStsPE[cntAir] = 0;
-        AryStsPE[cntFlg] = 0;
-        AryStsPE[cntWaitPass]= 0;
+        St_Cnt.AirPE = 0;
+        St_Cnt.FlgPE = 0;
+        St_Cnt.WaitPassPE = 0;
     }
-    if(areaNum == AREA_NUM_W)
+    if(cntW)
     {
-        AryStsW[cntAir] = 0;
-        AryStsW[cntFlg] = 0;
-        AryStsW[cntWaitPass]= 0;
+        St_Cnt.AirW = 0;
+        St_Cnt.FlgW = 0;
+        St_Cnt.WaitPassW = 0;
     }
-
 }
 
 
