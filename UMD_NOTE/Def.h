@@ -29,3 +29,6 @@
 #define CNT_DEBUG 100000
 #define PORT_DEBUG_PE 11
 #define PORT_DEBUG_W 12
+
+#define AREA_NUM_PE 2
+#define AREA_NUM_W 3

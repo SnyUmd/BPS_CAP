@@ -1,5 +1,8 @@
 #include "Init.h"
 
+long AryStsPE[5] = {0,0,0,0,0};
+long AryStsW[5] = {0,0,0,0,0};
+
 void InitPort()
 {
     //----------------------------
