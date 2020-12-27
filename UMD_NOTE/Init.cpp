@@ -1,7 +1,10 @@
 #include "Init.h"
 
-long AryStsPE[5] = {0,0,0,0,0};
-long AryStsW[5] = {0,0,0,0,0};
+bool FlgPE = false;
+bool FlgW = false;
+int DebugCntAAA = 0;
+long AryStsPE[9] = {0,0,0,0,0,0,0,0,0};
+long AryStsW[9] = {0,0,0,0,0,0,0,0,0};
 
 void InitPort()
 {

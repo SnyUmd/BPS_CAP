@@ -1,3 +1,5 @@
+//#define DEBUG_TIME_SEND
+
 #define LED_ON 1
 #define LED_OFF 0
 
