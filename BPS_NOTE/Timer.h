@@ -1,2 +1,3 @@
-void InitTimer2();
-void InitTimer3();
+#include <Arduino.h>
+
+long TimeElapsed(long start_time);
