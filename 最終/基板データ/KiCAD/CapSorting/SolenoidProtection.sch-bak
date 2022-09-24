@@ -1,0 +1,229 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text Notes 7150 6950 0    197  ~ 0
+Solenoid protection
+$Comp
+L Transistor_BJT:2SA1015 Q3
+U 1 1 5FE337D7
+P 4200 3000
+F 0 "Q3" H 4391 2954 50  0000 L CNN
+F 1 "2SA1015" H 4391 3045 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 4400 2925 50  0001 L CIN
+F 3 "http://www.datasheetcatalog.org/datasheet/toshiba/905.pdf" H 4200 3000 50  0001 L CNN
+	1    4200 3000
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R3
+U 1 1 5FE34B40
+P 3900 2600
+F 0 "R3" V 3693 2600 50  0000 C CNN
+F 1 "47k" V 3784 2600 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3830 2600 50  0001 C CNN
+F 3 "~" H 3900 2600 50  0001 C CNN
+	1    3900 2600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5FE3550F
+P 3450 3000
+F 0 "R2" V 3243 3000 50  0000 C CNN
+F 1 "10k" V 3334 3000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3380 3000 50  0001 C CNN
+F 3 "~" H 3450 3000 50  0001 C CNN
+	1    3450 3000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3750 2600 3750 3000
+Wire Wire Line
+	3750 3000 3600 3000
+Wire Wire Line
+	3750 3000 4000 3000
+Connection ~ 3750 3000
+Wire Wire Line
+	4050 2600 4300 2600
+Wire Wire Line
+	4300 2600 4300 2800
+$Comp
+L Device:R R4
+U 1 1 5FE35DD4
+P 4300 3500
+F 0 "R4" H 4230 3454 50  0000 R CNN
+F 1 "10k" H 4230 3545 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4230 3500 50  0001 C CNN
+F 3 "~" H 4300 3500 50  0001 C CNN
+	1    4300 3500
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R5
+U 1 1 5FE36421
+P 4300 3950
+F 0 "R5" H 4370 3996 50  0000 L CNN
+F 1 "22k" H 4370 3905 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4230 3950 50  0001 C CNN
+F 3 "~" H 4300 3950 50  0001 C CNN
+	1    4300 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR03
+U 1 1 5FE37BB2
+P 4300 4250
+F 0 "#PWR03" H 4300 4000 50  0001 C CNN
+F 1 "GND" H 4305 4077 50  0000 C CNN
+F 2 "" H 4300 4250 50  0001 C CNN
+F 3 "" H 4300 4250 50  0001 C CNN
+	1    4300 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 4250 4300 4100
+Wire Wire Line
+	4300 3800 4300 3750
+Wire Wire Line
+	4300 3350 4300 3200
+$Comp
+L Transistor_FET:IRLB8721PBF Q4
+U 1 1 5FE38647
+P 5150 3750
+F 0 "Q4" H 5350 4000 50  0000 L CNN
+F 1 "IRLB8721PBF" H 5350 3900 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5400 3675 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566056732591" H 5150 3750 50  0001 L CNN
+	1    5150 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4950 3750 4300 3750
+Connection ~ 4300 3750
+Wire Wire Line
+	4300 3750 4300 3650
+$Comp
+L power:GND #PWR04
+U 1 1 5FE3B4A7
+P 5250 4250
+F 0 "#PWR04" H 5250 4000 50  0001 C CNN
+F 1 "GND" H 5255 4077 50  0000 C CNN
+F 2 "" H 5250 4250 50  0001 C CNN
+F 3 "" H 5250 4250 50  0001 C CNN
+	1    5250 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 4250 5250 4100
+Wire Wire Line
+	5250 3550 5250 2700
+Wire Wire Line
+	5250 2700 5750 2700
+Wire Wire Line
+	4300 2600 4300 2250
+Wire Wire Line
+	4300 2250 5750 2250
+Connection ~ 4300 2600
+$Comp
+L power:+24V #PWR02
+U 1 1 5FE3C276
+P 4300 2100
+F 0 "#PWR02" H 4300 1950 50  0001 C CNN
+F 1 "+24V" H 4315 2273 50  0000 C CNN
+F 2 "" H 4300 2100 50  0001 C CNN
+F 3 "" H 4300 2100 50  0001 C CNN
+	1    4300 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 2100 4300 2250
+Connection ~ 4300 2250
+$Comp
+L Diode:1N4003 D1
+U 1 1 5FE3CCC0
+P 5750 2500
+F 0 "D1" V 5704 2580 50  0000 L CNN
+F 1 "1N4003" V 5795 2580 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 5750 2325 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 5750 2500 50  0001 C CNN
+	1    5750 2500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5750 2650 5750 2700
+Wire Wire Line
+	5750 2350 5750 2250
+Connection ~ 5750 2250
+Connection ~ 5750 2700
+Connection ~ 5250 4100
+Wire Wire Line
+	5250 4100 5250 3950
+Text Notes 4700 3850 0    50   ~ 0
+Vgs:16.5V
+Text Notes 5350 3900 0    50   ~ 0
+Vds:30V\nPd:65W(temp=25)  33W(temp=100)\n\n
+$Comp
+L Connector:TestPoint TP11
+U 1 1 5FE45038
+P 2900 3000
+F 0 "TP11" V 3095 3072 50  0000 C CNN
+F 1 "PLC" V 3004 3072 50  0000 C CNN
+F 2 "TestPoint:TestPoint_THTPad_D4.0mm_Drill2.0mm" H 3100 3000 50  0001 C CNN
+F 3 "~" H 3100 3000 50  0001 C CNN
+	1    2900 3000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP13
+U 1 1 5FE45B6D
+P 6150 2700
+F 0 "TP13" V 6104 2888 50  0000 L CNN
+F 1 "Solenoid" V 6195 2888 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D4.0mm_Drill2.0mm" H 6350 2700 50  0001 C CNN
+F 3 "~" H 6350 2700 50  0001 C CNN
+	1    6150 2700
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP12
+U 1 1 5FE4685A
+P 6100 2250
+F 0 "TP12" V 6054 2438 50  0000 L CNN
+F 1 "Device24V" V 6145 2438 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D4.0mm_Drill2.0mm" H 6300 2250 50  0001 C CNN
+F 3 "~" H 6300 2250 50  0001 C CNN
+	1    6100 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP14
+U 1 1 5FE47CB6
+P 6150 4100
+F 0 "TP14" V 6104 4288 50  0000 L CNN
+F 1 "DeviceGND" V 6195 4288 50  0000 L CNN
+F 2 "TestPoint:TestPoint_THTPad_D4.0mm_Drill2.0mm" H 6350 4100 50  0001 C CNN
+F 3 "~" H 6350 4100 50  0001 C CNN
+	1    6150 4100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5750 2250 6100 2250
+Wire Wire Line
+	5750 2700 6150 2700
+Wire Wire Line
+	5250 4100 6150 4100
+Wire Wire Line
+	2900 3000 3300 3000
+$EndSCHEMATC

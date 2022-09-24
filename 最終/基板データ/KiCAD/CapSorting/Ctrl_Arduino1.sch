@@ -1,0 +1,573 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Wire Wire Line
+	4100 3600 3750 3600
+Wire Wire Line
+	5200 3600 5600 3600
+Wire Wire Line
+	5600 3600 5600 3050
+Wire Wire Line
+	5600 3050 7300 3050
+Wire Wire Line
+	7300 3150 5800 3150
+Wire Wire Line
+	5800 3150 5800 4600
+$Comp
+L Isolator:TLP785 U?
+U 1 1 5FDFDF85
+P 4400 3700
+AR Path="/5FDFDF85" Ref="U?"  Part="1" 
+AR Path="/5FDE3296/5FDFDF85" Ref="U12"  Part="1" 
+AR Path="/5FE06856/5FDFDF85" Ref="U?"  Part="1" 
+F 0 "U12" H 4400 4025 50  0000 C CNN
+F 1 "TLP785" H 4400 3934 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W7.62mm" H 4200 3500 50  0001 L CIN
+F 3 "https://toshiba.semicon-storage.com/info/docget.jsp?did=10569&prodName=TLP785" H 4400 3700 50  0001 L CNN
+	1    4400 3700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 3600 4900 3600
+Wire Wire Line
+	4700 3950 4700 3800
+Wire Wire Line
+	4100 3950 4100 3800
+Wire Wire Line
+	4150 4600 3750 4600
+Wire Wire Line
+	4750 4600 4950 4600
+Wire Wire Line
+	4750 4950 4750 4800
+Wire Wire Line
+	4150 4950 4150 4800
+Wire Wire Line
+	5800 4600 5250 4600
+Wire Wire Line
+	4450 2850 3950 2850
+Wire Wire Line
+	4750 2850 5650 2850
+Wire Wire Line
+	5950 2650 6900 2650
+Wire Wire Line
+	5950 2750 6650 2750
+Wire Wire Line
+	5950 2850 6400 2850
+Wire Wire Line
+	5950 2950 6150 2950
+$Comp
+L power:GND #PWR?
+U 1 1 5FDC636A
+P 6150 3850
+AR Path="/5FDC636A" Ref="#PWR?"  Part="1" 
+AR Path="/5FDE3296/5FDC636A" Ref="#PWR017"  Part="1" 
+AR Path="/5FE06856/5FDC636A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR017" H 6150 3600 50  0001 C CNN
+F 1 "GND" H 6155 3677 50  0000 C CNN
+F 2 "" H 6150 3850 50  0001 C CNN
+F 3 "" H 6150 3850 50  0001 C CNN
+	1    6150 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 3850 6150 3800
+Wire Wire Line
+	6150 3800 6400 3800
+Wire Wire Line
+	6900 3800 6900 3550
+Connection ~ 6150 3800
+Wire Wire Line
+	6150 3800 6150 3550
+Wire Wire Line
+	6650 3550 6650 3800
+Connection ~ 6650 3800
+Wire Wire Line
+	6650 3800 6900 3800
+Wire Wire Line
+	6400 3550 6400 3800
+Connection ~ 6400 3800
+Wire Wire Line
+	6400 3800 6650 3800
+Wire Wire Line
+	6150 3250 6150 2950
+Connection ~ 6150 2950
+Wire Wire Line
+	6150 2950 7300 2950
+Wire Wire Line
+	6400 3250 6400 2850
+Connection ~ 6400 2850
+Wire Wire Line
+	6400 2850 7300 2850
+Wire Wire Line
+	6650 3250 6650 2750
+Connection ~ 6650 2750
+Wire Wire Line
+	6650 2750 7300 2750
+Wire Wire Line
+	6900 3250 6900 2650
+Connection ~ 6900 2650
+Wire Wire Line
+	6900 2650 7300 2650
+Text Notes 5750 2550 0    100  ~ 0
+LPF Fc=1.6kHz
+Wire Wire Line
+	7700 4150 7700 4300
+Wire Wire Line
+	7900 4150 7900 4300
+Wire Wire Line
+	7900 4300 7800 4300
+Connection ~ 7700 4300
+Wire Wire Line
+	7700 4300 7700 4650
+Wire Wire Line
+	7800 4150 7800 4300
+Connection ~ 7800 4300
+Wire Wire Line
+	7800 4300 7700 4300
+Wire Wire Line
+	7700 4950 7700 5000
+Wire Wire Line
+	7700 5000 7900 5000
+Connection ~ 7900 4300
+Text Notes 4900 4750 0    50   ~ 0
+← 5mA out
+$Comp
+L Device:R R12
+U 1 1 5FDC6345
+P 5050 3600
+AR Path="/5FDE3296/5FDC6345" Ref="R12"  Part="1" 
+AR Path="/5FE06856/5FDC6345" Ref="R?"  Part="1" 
+F 0 "R12" V 4843 3600 50  0000 C CNN
+F 1 "1k" V 4934 3600 50  0000 C CNN
+F 2 "" V 4980 3600 50  0001 C CNN
+F 3 "~" H 5050 3600 50  0001 C CNN
+	1    5050 3600
+	0    1    1    0   
+$EndComp
+Text GLabel 3750 3600 0    50   Output ~ 0
+AIR2_Y006
+$Comp
+L power:GND #PWR016
+U 1 1 5FDC6369
+P 6150 3850
+AR Path="/5FDE3296/5FDC6369" Ref="#PWR016"  Part="1" 
+AR Path="/5FE06856/5FDC6369" Ref="#PWR?"  Part="1" 
+F 0 "#PWR016" H 6150 3600 50  0001 C CNN
+F 1 "GND" H 6155 3677 50  0000 C CNN
+F 2 "" H 6150 3850 50  0001 C CNN
+F 3 "" H 6150 3850 50  0001 C CNN
+	1    6150 3850
+	1    0    0    -1  
+$EndComp
+Text Notes 5750 2550 0    100  ~ 0
+LPF Fc=1.6kHz
+Text GLabel 7900 5000 2    50   Input ~ 0
+DeviceGND
+Text Notes 4850 3750 0    50   ~ 0
+← 5mA out
+Text Notes 4900 4750 0    50   ~ 0
+← 5mA out
+$Comp
+L Device:D D12
+U 1 1 5FDC6344
+P 4100 2450
+AR Path="/5FDE3296/5FDC6344" Ref="D12"  Part="1" 
+AR Path="/5FE06856/5FDC6344" Ref="D?"  Part="1" 
+F 0 "D12" H 3900 2400 50  0000 C CNN
+F 1 "RB060M-60TR" H 4050 2300 50  0000 C CNN
+F 2 "" H 4100 2450 50  0001 C CNN
+F 3 "~" H 4100 2450 50  0001 C CNN
+	1    4100 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR014
+U 1 1 5FDFDF77
+P 4700 3950
+AR Path="/5FDE3296/5FDFDF77" Ref="#PWR014"  Part="1" 
+AR Path="/5FE06856/5FDFDF77" Ref="#PWR?"  Part="1" 
+F 0 "#PWR014" H 4700 3700 50  0001 C CNN
+F 1 "GND" H 4705 3777 50  0000 C CNN
+F 2 "" H 4700 3950 50  0001 C CNN
+F 3 "" H 4700 3950 50  0001 C CNN
+	1    4700 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR012
+U 1 1 5FDC634B
+P 4100 3950
+AR Path="/5FDE3296/5FDC634B" Ref="#PWR012"  Part="1" 
+AR Path="/5FE06856/5FDC634B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR012" H 4100 3700 50  0001 C CNN
+F 1 "GND" H 4105 3777 50  0000 C CNN
+F 2 "" H 4100 3950 50  0001 C CNN
+F 3 "" H 4100 3950 50  0001 C CNN
+	1    4100 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 5FDC634D
+P 5100 4600
+AR Path="/5FDE3296/5FDC634D" Ref="R13"  Part="1" 
+AR Path="/5FE06856/5FDC634D" Ref="R?"  Part="1" 
+F 0 "R13" V 4893 4600 50  0000 C CNN
+F 1 "1k" V 4984 4600 50  0000 C CNN
+F 2 "" V 5030 4600 50  0001 C CNN
+F 3 "~" H 5100 4600 50  0001 C CNN
+	1    5100 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR015
+U 1 1 5FDFDF9A
+P 4750 4950
+AR Path="/5FDE3296/5FDFDF9A" Ref="#PWR015"  Part="1" 
+AR Path="/5FE06856/5FDFDF9A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR015" H 4750 4700 50  0001 C CNN
+F 1 "GND" H 4755 4777 50  0000 C CNN
+F 2 "" H 4750 4950 50  0001 C CNN
+F 3 "" H 4750 4950 50  0001 C CNN
+	1    4750 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Isolator:TLP785 U13
+U 1 1 5FDC6352
+P 4450 4700
+AR Path="/5FDE3296/5FDC6352" Ref="U13"  Part="1" 
+AR Path="/5FE06856/5FDC6352" Ref="U?"  Part="1" 
+F 0 "U13" H 4450 5025 50  0000 C CNN
+F 1 "TLP785" H 4450 4934 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W7.62mm" H 4250 4500 50  0001 L CIN
+F 3 "https://toshiba.semicon-storage.com/info/docget.jsp?did=10569&prodName=TLP785" H 4450 4700 50  0001 L CNN
+	1    4450 4700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR013
+U 1 1 5FDC6354
+P 4150 4950
+AR Path="/5FDE3296/5FDC6354" Ref="#PWR013"  Part="1" 
+AR Path="/5FE06856/5FDC6354" Ref="#PWR?"  Part="1" 
+F 0 "#PWR013" H 4150 4700 50  0001 C CNN
+F 1 "GND" H 4155 4777 50  0000 C CNN
+F 2 "" H 4150 4950 50  0001 C CNN
+F 3 "" H 4150 4950 50  0001 C CNN
+	1    4150 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D15
+U 1 1 5FDC6356
+P 4600 2850
+AR Path="/5FDE3296/5FDC6356" Ref="D15"  Part="1" 
+AR Path="/5FE06856/5FDC6356" Ref="D?"  Part="1" 
+F 0 "D15" H 4750 2900 50  0000 C CNN
+F 1 "RB060M-60TR" H 4950 2800 50  0000 C CNN
+F 2 "" H 4600 2850 50  0001 C CNN
+F 3 "~" H 4600 2850 50  0001 C CNN
+	1    4600 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D13
+U 1 1 5FDFDFB7
+P 4250 2950
+AR Path="/5FDE3296/5FDFDFB7" Ref="D13"  Part="1" 
+AR Path="/5FE06856/5FDFDFB7" Ref="D?"  Part="1" 
+F 0 "D13" H 4400 3000 50  0000 C CNN
+F 1 "RB060M-60TR" H 4650 2900 50  0000 C CNN
+F 2 "" H 4250 2950 50  0001 C CNN
+F 3 "~" H 4250 2950 50  0001 C CNN
+	1    4250 2950
+	1    0    0    -1  
+$EndComp
+Text GLabel 3700 2450 0    50   Input ~ 0
+WhiteSensor
+Text GLabel 3850 2350 0    50   Input ~ 0
+PE_Camera_B17
+Text GLabel 3950 2850 0    50   Input ~ 0
+PassSensor_Area2
+$Comp
+L Device:R R15
+U 1 1 5FDC635B
+P 5800 2750
+AR Path="/5FDE3296/5FDC635B" Ref="R15"  Part="1" 
+AR Path="/5FE06856/5FDC635B" Ref="R?"  Part="1" 
+F 0 "R15" V 5750 2450 50  0000 C CNN
+F 1 "1k" V 5750 2950 50  0000 C CNN
+F 2 "" V 5730 2750 50  0001 C CNN
+F 3 "~" H 5800 2750 50  0001 C CNN
+	1    5800 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R16
+U 1 1 5FDC635D
+P 5800 2850
+AR Path="/5FDE3296/5FDC635D" Ref="R16"  Part="1" 
+AR Path="/5FE06856/5FDC635D" Ref="R?"  Part="1" 
+F 0 "R16" V 5750 2550 50  0000 C CNN
+F 1 "1k" V 5750 3050 50  0000 C CNN
+F 2 "" V 5730 2850 50  0001 C CNN
+F 3 "~" H 5800 2850 50  0001 C CNN
+	1    5800 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R17
+U 1 1 5FDC635F
+P 5800 2950
+AR Path="/5FDE3296/5FDC635F" Ref="R17"  Part="1" 
+AR Path="/5FE06856/5FDC635F" Ref="R?"  Part="1" 
+F 0 "R17" V 5750 2650 50  0000 C CNN
+F 1 "1k" V 5750 3150 50  0000 C CNN
+F 2 "" V 5730 2950 50  0001 C CNN
+F 3 "~" H 5800 2950 50  0001 C CNN
+	1    5800 2950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C12
+U 1 1 5FDC6362
+P 6150 3400
+AR Path="/5FDE3296/5FDC6362" Ref="C12"  Part="1" 
+AR Path="/5FE06856/5FDC6362" Ref="C?"  Part="1" 
+F 0 "C12" V 6100 3100 50  0000 L CNN
+F 1 "0.22u" V 6200 3100 50  0000 L CNN
+F 2 "" H 6188 3250 50  0001 C CNN
+F 3 "~" H 6150 3400 50  0001 C CNN
+	1    6150 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C13
+U 1 1 5FDC6364
+P 6400 3400
+AR Path="/5FDE3296/5FDC6364" Ref="C13"  Part="1" 
+AR Path="/5FE06856/5FDC6364" Ref="C?"  Part="1" 
+F 0 "C13" V 6350 3100 50  0000 L CNN
+F 1 "0.22u" V 6450 3100 50  0000 L CNN
+F 2 "" H 6438 3250 50  0001 C CNN
+F 3 "~" H 6400 3400 50  0001 C CNN
+	1    6400 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C14
+U 1 1 5FDC6366
+P 6650 3400
+AR Path="/5FDE3296/5FDC6366" Ref="C14"  Part="1" 
+AR Path="/5FE06856/5FDC6366" Ref="C?"  Part="1" 
+F 0 "C14" V 6600 3100 50  0000 L CNN
+F 1 "0.22u" V 6700 3100 50  0000 L CNN
+F 2 "" H 6688 3250 50  0001 C CNN
+F 3 "~" H 6650 3400 50  0001 C CNN
+	1    6650 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C15
+U 1 1 5FDC6368
+P 6900 3400
+AR Path="/5FDE3296/5FDC6368" Ref="C15"  Part="1" 
+AR Path="/5FE06856/5FDC6368" Ref="C?"  Part="1" 
+F 0 "C15" V 6850 3100 50  0000 L CNN
+F 1 "0.22u" V 6950 3100 50  0000 L CNN
+F 2 "" H 6938 3250 50  0001 C CNN
+F 3 "~" H 6900 3400 50  0001 C CNN
+	1    6900 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR018
+U 1 1 5FDFDFFA
+P 6150 3850
+AR Path="/5FDE3296/5FDFDFFA" Ref="#PWR018"  Part="1" 
+AR Path="/5FE06856/5FDFDFFA" Ref="#PWR?"  Part="1" 
+F 0 "#PWR018" H 6150 3600 50  0001 C CNN
+F 1 "GND" H 6155 3677 50  0000 C CNN
+F 2 "" H 6150 3850 50  0001 C CNN
+F 3 "" H 6150 3850 50  0001 C CNN
+	1    6150 3850
+	1    0    0    -1  
+$EndComp
+Text Notes 5750 2550 0    100  ~ 0
+LPF Fc=1.6kHz
+$Comp
+L Device:L L12
+U 1 1 5FDFE018
+P 7700 4800
+AR Path="/5FDE3296/5FDFE018" Ref="L12"  Part="1" 
+AR Path="/5FE06856/5FDFE018" Ref="L?"  Part="1" 
+F 0 "L12" H 7753 4846 50  0000 L CNN
+F 1 "6.8uH(74404042068)" H 7753 4755 50  0000 L CNN
+F 2 "" H 7700 4800 50  0001 C CNN
+F 3 "~" H 7700 4800 50  0001 C CNN
+	1    7700 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR019
+U 1 1 5FDFE029
+P 7900 4300
+AR Path="/5FDE3296/5FDFE029" Ref="#PWR019"  Part="1" 
+AR Path="/5FE06856/5FDFE029" Ref="#PWR?"  Part="1" 
+F 0 "#PWR019" H 7900 4050 50  0001 C CNN
+F 1 "GND" H 7905 4127 50  0000 C CNN
+F 2 "" H 7900 4300 50  0001 C CNN
+F 3 "" H 7900 4300 50  0001 C CNN
+	1    7900 4300
+	1    0    0    -1  
+$EndComp
+Text Notes 7650 5000 1    50   ~ 0
+Noise filter
+Text GLabel 3950 2950 0    50   Input ~ 0
+PassSensor_Area3
+Text Notes 4900 4750 0    50   ~ 0
+← 5mA out
+Text Notes 7050 6950 0    200  ~ 0
+Cap sorting device Arduino
+Text GLabel 3750 4600 0    50   Output ~ 0
+AIR3_Y012
+$Comp
+L Device:R R14
+U 1 1 5FDFDFC6
+P 5800 2650
+AR Path="/5FDE3296/5FDFDFC6" Ref="R14"  Part="1" 
+AR Path="/5FE06856/5FDFDFC6" Ref="R?"  Part="1" 
+F 0 "R14" V 5750 2350 50  0000 C CNN
+F 1 "1k" V 5750 2850 50  0000 C CNN
+F 2 "" V 5730 2650 50  0001 C CNN
+F 3 "~" H 5800 2650 50  0001 C CNN
+	1    5800 2650
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D14
+U 1 1 5FDC6342
+P 4450 2350
+AR Path="/5FDE3296/5FDC6342" Ref="D14"  Part="1" 
+AR Path="/5FE06856/5FDC6342" Ref="D?"  Part="1" 
+F 0 "D14" H 4600 2500 50  0000 C CNN
+F 1 "RB060M-60TR" H 4800 2400 50  0000 C CNN
+F 2 "" H 4450 2350 50  0001 C CNN
+F 3 "~" H 4450 2350 50  0001 C CNN
+	1    4450 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 2350 3850 2350
+Wire Wire Line
+	3700 2450 3950 2450
+Wire Wire Line
+	4250 2450 4350 2450
+Wire Wire Line
+	4350 2450 4350 2750
+Wire Wire Line
+	4350 2750 5650 2750
+Wire Wire Line
+	5650 2650 4650 2650
+Wire Wire Line
+	4650 2650 4650 2350
+Wire Wire Line
+	4650 2350 4600 2350
+Wire Wire Line
+	4400 2950 5650 2950
+Wire Wire Line
+	3950 2950 4100 2950
+$Comp
+L Device:R R1
+U 1 1 5FE1B009
+P 2400 2200
+AR Path="/5FDE3296/5FE1B009" Ref="R1"  Part="1" 
+AR Path="/5FE06856/5FE1B009" Ref="R?"  Part="1" 
+F 0 "R1" H 2550 2350 50  0001 C CNN
+F 1 "4.3k PullUp" H 2100 2200 50  0000 C CNN
+F 2 "" V 2330 2200 50  0001 C CNN
+F 3 "~" H 2400 2200 50  0001 C CNN
+	1    2400 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+24V #PWR01
+U 1 1 5FE1CA90
+P 2400 1950
+F 0 "#PWR01" H 2400 1800 50  0001 C CNN
+F 1 "+24V" H 2415 2123 50  0000 C CNN
+F 2 "" H 2400 1950 50  0001 C CNN
+F 3 "" H 2400 1950 50  0001 C CNN
+	1    2400 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 2050 2400 1950
+Wire Wire Line
+	2400 2350 2400 2400
+Connection ~ 2400 2400
+Wire Wire Line
+	2400 2400 2400 2450
+Wire Wire Line
+	2400 2400 3050 2400
+$Comp
+L Device:Q_NPN_BCE Q1
+U 1 1 5FE37ACB
+P 2300 2650
+F 0 "Q1" H 2490 2696 50  0001 L CNN
+F 1 "PLC" H 2490 2650 50  0000 L CNN
+F 2 "" H 2500 2750 50  0001 C CNN
+F 3 "~" H 2300 2650 50  0001 C CNN
+	1    2300 2650
+	1    0    0    -1  
+$EndComp
+Text GLabel 2400 2900 3    50   Input ~ 0
+DeviceGND
+Wire Wire Line
+	2400 2900 2400 2850
+$Comp
+L Device:Q_NPN_BCE Q2
+U 1 1 5FE393E8
+P 2750 3100
+F 0 "Q2" H 2940 3146 50  0001 L CNN
+F 1 "PLC" H 2940 3100 50  0000 L CNN
+F 2 "" H 2950 3200 50  0001 C CNN
+F 3 "~" H 2750 3100 50  0001 C CNN
+	1    2750 3100
+	1    0    0    -1  
+$EndComp
+Text GLabel 2850 3350 3    50   Input ~ 0
+DeviceGND
+Wire Wire Line
+	2850 3350 2850 3300
+Wire Wire Line
+	2850 2900 3050 2900
+$Comp
+L MCU_Module:Arduino_UNO_R3 A12
+U 1 1 5FDC6340
+P 7800 3050
+AR Path="/5FDE3296/5FDC6340" Ref="A12"  Part="1" 
+AR Path="/5FE06856/5FDC6340" Ref="A?"  Part="1" 
+F 0 "A12" H 7800 4231 50  0000 C CNN
+F 1 "Arduino_UNO_R3" H 7800 4140 50  0000 C CNN
+F 2 "Module:Arduino_UNO_R3" H 7800 3050 50  0001 C CIN
+F 3 "https://www.arduino.cc/en/Main/arduinoBoardUno" H 7800 3050 50  0001 C CNN
+	1    7800 3050
+	1    0    0    -1  
+$EndComp
+Text Notes 8350 3000 0    79   ~ 0
+InternalPullUp\nD2-D5\n\n\nInterrupt\nD2-D3
+$EndSCHEMATC

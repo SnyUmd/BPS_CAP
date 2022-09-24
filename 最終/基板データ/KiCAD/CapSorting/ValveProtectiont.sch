@@ -1,0 +1,153 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_BJT:2SA1015 Q?
+U 1 1 5FDD43CD
+P 6100 3450
+F 0 "Q?" H 6291 3404 50  0000 L CNN
+F 1 "2SA1015" H 6291 3495 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 6300 3375 50  0001 L CIN
+F 3 "http://www.datasheetcatalog.org/datasheet/toshiba/905.pdf" H 6100 3450 50  0001 L CNN
+	1    6100 3450
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FDD747C
+P 5300 3450
+F 0 "R?" V 5093 3450 50  0000 C CNN
+F 1 "10k" V 5184 3450 50  0000 C CNN
+F 2 "" V 5230 3450 50  0001 C CNN
+F 3 "~" H 5300 3450 50  0001 C CNN
+	1    5300 3450
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FDD78FB
+P 5800 3000
+F 0 "R?" V 5593 3000 50  0000 C CNN
+F 1 "47k" V 5684 3000 50  0000 C CNN
+F 2 "" V 5730 3000 50  0001 C CNN
+F 3 "~" H 5800 3000 50  0001 C CNN
+	1    5800 3000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5950 3000 6200 3000
+Wire Wire Line
+	6200 3000 6200 3250
+Wire Wire Line
+	5900 3450 5550 3450
+Wire Wire Line
+	5650 3000 5550 3000
+Wire Wire Line
+	5550 3000 5550 3450
+Connection ~ 5550 3450
+Wire Wire Line
+	5550 3450 5450 3450
+Wire Wire Line
+	6200 3800 6200 3650
+$Comp
+L Device:R R?
+U 1 1 5FDD619F
+P 6200 3950
+F 0 "R?" H 6270 3996 50  0000 L CNN
+F 1 "10k" H 6270 3905 50  0000 L CNN
+F 2 "" V 6130 3950 50  0001 C CNN
+F 3 "~" H 6200 3950 50  0001 C CNN
+	1    6200 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FDD8B2B
+P 6600 4450
+F 0 "R?" V 6393 4450 50  0000 C CNN
+F 1 "47k" V 6484 4450 50  0000 C CNN
+F 2 "" V 6530 4450 50  0001 C CNN
+F 3 "~" H 6600 4450 50  0001 C CNN
+	1    6600 4450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6450 4450 6200 4450
+Wire Wire Line
+	6200 4450 6200 4150
+$Comp
+L Transistor_FET:IRLB8721PBF Q?
+U 1 1 5FDDA47B
+P 7100 4150
+F 0 "Q?" H 7304 4196 50  0000 L CNN
+F 1 "IRLB8721PBF" H 7304 4105 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 7350 4075 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566056732591" H 7100 4150 50  0001 L CNN
+	1    7100 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 4150 6200 4150
+Connection ~ 6200 4150
+Wire Wire Line
+	6200 4150 6200 4100
+Wire Wire Line
+	7200 4350 7200 4450
+Wire Wire Line
+	7200 4450 6750 4450
+$Comp
+L power:GND #PWR?
+U 1 1 5FDDC5EB
+P 7200 4650
+F 0 "#PWR?" H 7200 4400 50  0001 C CNN
+F 1 "GND" H 7205 4477 50  0000 C CNN
+F 2 "" H 7200 4650 50  0001 C CNN
+F 3 "" H 7200 4650 50  0001 C CNN
+	1    7200 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 4650 7200 4450
+Connection ~ 7200 4450
+$Comp
+L Diode:1N4003 D?
+U 1 1 5FDDCD88
+P 7200 3350
+F 0 "D?" V 7154 3430 50  0000 L CNN
+F 1 "1N4003" V 7245 3430 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7200 3175 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7200 3350 50  0001 C CNN
+	1    7200 3350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7200 3500 7200 3650
+Wire Wire Line
+	7200 3200 7200 3000
+Wire Wire Line
+	7200 3000 6200 3000
+Connection ~ 6200 3000
+Wire Wire Line
+	7200 3650 7850 3650
+Connection ~ 7200 3650
+Wire Wire Line
+	7200 3650 7200 3950
+Wire Wire Line
+	5150 3450 4600 3450
+Text GLabel 4600 3450 0    100  Input ~ 0
+PLC_Y006_or_Y007
+Text GLabel 7850 3650 2    100  Output ~ 0
+Valb
+$EndSCHEMATC

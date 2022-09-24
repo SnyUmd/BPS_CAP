@@ -1,0 +1,78 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_BJT:2SA1015 Q?
+U 1 1 5FDD43CD
+P 3700 2550
+F 0 "Q?" H 3891 2504 50  0000 L CNN
+F 1 "2SA1015" H 3891 2595 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 3900 2475 50  0001 L CIN
+F 3 "http://www.datasheetcatalog.org/datasheet/toshiba/905.pdf" H 3700 2550 50  0001 L CNN
+	1    3700 2550
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FDD619F
+P 3800 3100
+F 0 "R?" H 3870 3146 50  0000 L CNN
+F 1 "R" H 3870 3055 50  0000 L CNN
+F 2 "" V 3730 3100 50  0001 C CNN
+F 3 "~" H 3800 3100 50  0001 C CNN
+	1    3800 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FDD747C
+P 2900 2550
+F 0 "R?" V 2693 2550 50  0000 C CNN
+F 1 "R" V 2784 2550 50  0000 C CNN
+F 2 "" V 2830 2550 50  0001 C CNN
+F 3 "~" H 2900 2550 50  0001 C CNN
+	1    2900 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5FDD78FB
+P 3400 2100
+F 0 "R?" V 3193 2100 50  0000 C CNN
+F 1 "R" V 3284 2100 50  0000 C CNN
+F 2 "" V 3330 2100 50  0001 C CNN
+F 3 "~" H 3400 2100 50  0001 C CNN
+	1    3400 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3550 2100 3800 2100
+Wire Wire Line
+	3800 2100 3800 2350
+Wire Wire Line
+	3500 2550 3150 2550
+Wire Wire Line
+	3250 2100 3150 2100
+Wire Wire Line
+	3150 2100 3150 2550
+Connection ~ 3150 2550
+Wire Wire Line
+	3150 2550 3050 2550
+Wire Wire Line
+	3800 3100 3800 2950
+Connection ~ 3800 2950
+Wire Wire Line
+	3800 2950 3800 2750
+$EndSCHEMATC

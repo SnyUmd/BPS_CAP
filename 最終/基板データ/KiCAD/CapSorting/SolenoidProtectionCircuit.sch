@@ -1,0 +1,417 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text Notes 7550 6950 0    197  ~ 0
+Solenoid protection
+$Comp
+L Transistor_BJT:2SA1015 Q12
+U 1 1 5FE464A7
+P 6500 1800
+F 0 "Q12" H 6691 1754 50  0000 L CNN
+F 1 "2SA1015" H 6691 1845 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 6700 1725 50  0001 L CIN
+F 3 "http://www.datasheetcatalog.org/datasheet/toshiba/905.pdf" H 6500 1800 50  0001 L CNN
+	1    6500 1800
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 5FE464AD
+P 6200 1400
+F 0 "R13" V 5993 1400 50  0000 C CNN
+F 1 "47k" V 6084 1400 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6130 1400 50  0001 C CNN
+F 3 "~" H 6200 1400 50  0001 C CNN
+	1    6200 1400
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R12
+U 1 1 5FE464B3
+P 5750 1800
+F 0 "R12" V 5543 1800 50  0000 C CNN
+F 1 "10k" V 5634 1800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5680 1800 50  0001 C CNN
+F 3 "~" H 5750 1800 50  0001 C CNN
+	1    5750 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6050 1400 6050 1800
+Wire Wire Line
+	6050 1800 5900 1800
+Wire Wire Line
+	6050 1800 6300 1800
+Connection ~ 6050 1800
+Wire Wire Line
+	6350 1400 6600 1400
+Wire Wire Line
+	6600 1400 6600 1600
+$Comp
+L Device:R R14
+U 1 1 5FE464BF
+P 6600 2300
+F 0 "R14" H 6530 2254 50  0000 R CNN
+F 1 "10k" H 6530 2345 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6530 2300 50  0001 C CNN
+F 3 "~" H 6600 2300 50  0001 C CNN
+	1    6600 2300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5FE464C5
+P 6600 2750
+F 0 "R15" H 6670 2796 50  0000 L CNN
+F 1 "22k" H 6670 2705 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6530 2750 50  0001 C CNN
+F 3 "~" H 6600 2750 50  0001 C CNN
+	1    6600 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5FE464CB
+P 6600 3050
+F 0 "#PWR0101" H 6600 2800 50  0001 C CNN
+F 1 "GND" H 6605 2877 50  0000 C CNN
+F 2 "" H 6600 3050 50  0001 C CNN
+F 3 "" H 6600 3050 50  0001 C CNN
+	1    6600 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 3050 6600 2900
+Wire Wire Line
+	6600 2600 6600 2550
+Wire Wire Line
+	6600 2150 6600 2000
+$Comp
+L Transistor_FET:IRLB8721PBF Q13
+U 1 1 5FE464D4
+P 7450 2550
+F 0 "Q13" H 7650 2800 50  0000 L CNN
+F 1 "IRLB8721PBF" H 7650 2700 50  0000 L CNN
+F 2 "CapSorting:IRLB8721PBF-2" H 7700 2475 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566056732591" H 7450 2550 50  0001 L CNN
+	1    7450 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 2550 6600 2550
+Connection ~ 6600 2550
+Wire Wire Line
+	6600 2550 6600 2450
+$Comp
+L power:GND #PWR0102
+U 1 1 5FE464DD
+P 7550 3050
+F 0 "#PWR0102" H 7550 2800 50  0001 C CNN
+F 1 "GND" H 7555 2877 50  0000 C CNN
+F 2 "" H 7550 3050 50  0001 C CNN
+F 3 "" H 7550 3050 50  0001 C CNN
+	1    7550 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 2350 7550 1500
+Wire Wire Line
+	7550 1500 8050 1500
+Wire Wire Line
+	6600 1400 6600 1050
+Wire Wire Line
+	6600 1050 8050 1050
+Connection ~ 6600 1400
+$Comp
+L power:+24V #PWR0103
+U 1 1 5FE464E9
+P 6600 900
+F 0 "#PWR0103" H 6600 750 50  0001 C CNN
+F 1 "+24V" H 6615 1073 50  0000 C CNN
+F 2 "" H 6600 900 50  0001 C CNN
+F 3 "" H 6600 900 50  0001 C CNN
+	1    6600 900 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 900  6600 1050
+Connection ~ 6600 1050
+$Comp
+L Diode:1N4003 D12
+U 1 1 5FE464F1
+P 8050 1300
+F 0 "D12" V 8004 1380 50  0000 L CNN
+F 1 "1N4003" V 8095 1380 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8050 1125 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8050 1300 50  0001 C CNN
+	1    8050 1300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8050 1450 8050 1500
+Wire Wire Line
+	8050 1150 8050 1050
+Connection ~ 8050 1500
+Text Notes 7000 2650 0    50   ~ 0
+Vgs:16.5V
+Text Notes 7650 2700 0    50   ~ 0
+Vds:30V\nPd:65W(temp=25)  33W(temp=100)\n\n
+Wire Wire Line
+	8050 1500 8450 1500
+Wire Wire Line
+	5200 1800 5600 1800
+$Comp
+L Transistor_BJT:2SA1015 Q1
+U 1 1 5FE44DD0
+P 6450 4700
+F 0 "Q1" H 6641 4654 50  0000 L CNN
+F 1 "2SA1015" H 6641 4745 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 6650 4625 50  0001 L CIN
+F 3 "http://www.datasheetcatalog.org/datasheet/toshiba/905.pdf" H 6450 4700 50  0001 L CNN
+	1    6450 4700
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5FE44DD6
+P 6150 4300
+F 0 "R2" V 5943 4300 50  0000 C CNN
+F 1 "47k" V 6034 4300 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6080 4300 50  0001 C CNN
+F 3 "~" H 6150 4300 50  0001 C CNN
+	1    6150 4300
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5FE44DDC
+P 5700 4700
+F 0 "R1" V 5493 4700 50  0000 C CNN
+F 1 "10k" V 5584 4700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5630 4700 50  0001 C CNN
+F 3 "~" H 5700 4700 50  0001 C CNN
+	1    5700 4700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6000 4300 6000 4700
+Wire Wire Line
+	6000 4700 5850 4700
+Wire Wire Line
+	6000 4700 6250 4700
+Connection ~ 6000 4700
+Wire Wire Line
+	6300 4300 6550 4300
+Wire Wire Line
+	6550 4300 6550 4500
+$Comp
+L Device:R R3
+U 1 1 5FE44DE8
+P 6550 5200
+F 0 "R3" H 6480 5154 50  0000 R CNN
+F 1 "10k" H 6480 5245 50  0000 R CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6480 5200 50  0001 C CNN
+F 3 "~" H 6550 5200 50  0001 C CNN
+	1    6550 5200
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R4
+U 1 1 5FE44DEE
+P 6550 5650
+F 0 "R4" H 6620 5696 50  0000 L CNN
+F 1 "22k" H 6620 5605 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6480 5650 50  0001 C CNN
+F 3 "~" H 6550 5650 50  0001 C CNN
+	1    6550 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 5FE44DF4
+P 6550 5950
+F 0 "#PWR02" H 6550 5700 50  0001 C CNN
+F 1 "GND" H 6555 5777 50  0000 C CNN
+F 2 "" H 6550 5950 50  0001 C CNN
+F 3 "" H 6550 5950 50  0001 C CNN
+	1    6550 5950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 5950 6550 5800
+Wire Wire Line
+	6550 5500 6550 5450
+Wire Wire Line
+	6550 5050 6550 4900
+$Comp
+L Transistor_FET:IRLB8721PBF Q2
+U 1 1 5FE44DFD
+P 7400 5450
+F 0 "Q2" H 7600 5700 50  0000 L CNN
+F 1 "IRLB8721PBF" H 7600 5600 50  0000 L CNN
+F 2 "CapSorting:IRLB8721PBF-2" H 7650 5375 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566056732591" H 7400 5450 50  0001 L CNN
+	1    7400 5450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7200 5450 6550 5450
+Connection ~ 6550 5450
+Wire Wire Line
+	6550 5450 6550 5350
+$Comp
+L power:GND #PWR03
+U 1 1 5FE44E06
+P 7500 5950
+F 0 "#PWR03" H 7500 5700 50  0001 C CNN
+F 1 "GND" H 7505 5777 50  0000 C CNN
+F 2 "" H 7500 5950 50  0001 C CNN
+F 3 "" H 7500 5950 50  0001 C CNN
+	1    7500 5950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 5250 7500 4400
+Wire Wire Line
+	7500 4400 8000 4400
+Wire Wire Line
+	6550 4300 6550 3950
+Wire Wire Line
+	6550 3950 8000 3950
+Connection ~ 6550 4300
+$Comp
+L power:+24V #PWR01
+U 1 1 5FE44E12
+P 6550 3800
+F 0 "#PWR01" H 6550 3650 50  0001 C CNN
+F 1 "+24V" H 6565 3973 50  0000 C CNN
+F 2 "" H 6550 3800 50  0001 C CNN
+F 3 "" H 6550 3800 50  0001 C CNN
+	1    6550 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 3800 6550 3950
+Connection ~ 6550 3950
+$Comp
+L Diode:1N4003 D1
+U 1 1 5FE44E1A
+P 8000 4200
+F 0 "D1" V 7954 4280 50  0000 L CNN
+F 1 "1N4003" V 8045 4280 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8000 4025 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8000 4200 50  0001 C CNN
+	1    8000 4200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8000 4350 8000 4400
+Wire Wire Line
+	8000 4050 8000 3950
+Connection ~ 8000 4400
+Text Notes 6950 5550 0    50   ~ 0
+Vgs:16.5V
+Text Notes 7600 5600 0    50   ~ 0
+Vds:30V\nPd:65W(temp=25)  33W(temp=100)\n\n
+Wire Wire Line
+	8000 4400 8400 4400
+Wire Wire Line
+	5150 4700 5550 4700
+Wire Wire Line
+	7500 5650 7500 5950
+$Comp
+L power:+24V #PWR0104
+U 1 1 5FE4EC17
+P 3650 1250
+F 0 "#PWR0104" H 3650 1100 50  0001 C CNN
+F 1 "+24V" H 3665 1423 50  0000 C CNN
+F 2 "" H 3650 1250 50  0001 C CNN
+F 3 "" H 3650 1250 50  0001 C CNN
+	1    3650 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0105
+U 1 1 5FE500C1
+P 3550 2000
+F 0 "#PWR0105" H 3550 1750 50  0001 C CNN
+F 1 "GND" H 3555 1827 50  0000 C CNN
+F 2 "" H 3550 2000 50  0001 C CNN
+F 3 "" H 3550 2000 50  0001 C CNN
+	1    3550 2000
+	1    0    0    -1  
+$EndComp
+Text GLabel 5200 1800 0    50   Input ~ 0
+PLC_Y012
+Text GLabel 3800 1500 2    50   Output ~ 0
+PLC_Y012
+Text GLabel 5150 4700 0    50   Input ~ 0
+PLC_Y006
+Text GLabel 3800 1700 2    50   Output ~ 0
+PLC_Y006
+Wire Wire Line
+	3800 1500 3450 1500
+Wire Wire Line
+	3450 1700 3800 1700
+Text GLabel 8450 1500 2    50   Output ~ 0
+Solenoid3
+Text GLabel 3800 1400 2    50   Input ~ 0
+Solenoid3
+Text GLabel 3800 1600 2    50   Input ~ 0
+Solenoid2
+Text GLabel 8400 4400 2    50   Output ~ 0
+Solenoid2
+Wire Wire Line
+	7550 2750 7550 3050
+Wire Wire Line
+	3800 1400 3450 1400
+Wire Wire Line
+	3450 1600 3800 1600
+Wire Wire Line
+	3650 1800 3450 1800
+Wire Wire Line
+	3650 1250 3650 1800
+Wire Wire Line
+	3550 1300 3450 1300
+Wire Wire Line
+	3550 1300 3550 2000
+$Comp
+L Connector_Generic:Conn_01x06 J11
+U 1 1 5FE4D6A7
+P 3250 1500
+F 0 "J11" H 3168 1917 50  0000 C CNN
+F 1 "Conn_01x06" H 3168 1826 50  0000 C CNN
+F 2 "Connector_JST:JST_XH_S6B-XH-A_1x06_P2.50mm_Horizontal" H 3250 1500 50  0001 C CNN
+F 3 "~" H 3250 1500 50  0001 C CNN
+	1    3250 1500
+	-1   0    0    -1  
+$EndComp
+Wire Notes Line style solid
+	3150 1400 3050 1400
+Wire Notes Line style solid
+	3050 1400 3050 1500
+Wire Notes Line style solid
+	3050 1500 3150 1500
+Wire Notes Line style solid
+	3150 1600 3050 1600
+Wire Notes Line style solid
+	3050 1600 3050 1700
+Wire Notes Line style solid
+	3050 1700 3150 1700
+Text Notes 3000 1700 2    79   ~ 0
+PE area
+Text Notes 3000 1500 2    79   ~ 0
+White area
+$EndSCHEMATC
